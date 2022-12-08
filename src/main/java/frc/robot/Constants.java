@@ -38,7 +38,7 @@ public final class Constants {
     public static final boolean kGyroReversed = false;
 
     /* Driving Parameters */
-    public static final double kMaxSpeedMetersPerSecond = 4.4;
+    public static final double kMaxSpeedMetersPerSecond = 4.8;
     public static final double kMaxAngularSpeed = 2 * Math.PI; // radians per second
 
     // Angular offsets of the modules relative to the chassis in radians
@@ -60,11 +60,13 @@ public final class Constants {
   }
 
   public static final class ModuleConstants {
-
     public static final boolean kTurningEncoderInverted = true;
-
-    public static final double kDrivingMotorReduction = 66.0 / 13.0; // rotations of motor / rotations of output
+    
+    public static final double kpinonTeeth = 14;  // adujust based off module ordered 
+    public static final double kmotorFreeSpeed =5676 /60;
+    public static final double kDrivingMotorReduction = 990 / (kpinonTeeth * 15);
     public static final double kWheelDiameterMeters = 0.0762;
+    public static final double kWheelCircumferenceMeters = kWheelDiameterMeters * Math.PI;
     public static final double kDrivingEncoderPositionFactor = (kWheelDiameterMeters * Math.PI)
         / (double) kDrivingMotorReduction; // meters
     public static final double kDrivingEncoderVelocityFactor = ((kWheelDiameterMeters * Math.PI)
@@ -75,11 +77,12 @@ public final class Constants {
 
     public static final double kTurningEncoderPositionPIDMinInput = 0; // radians
     public static final double kTurningEncoderPositionPIDMaxInput = kTurningEncoderPositionFactor; // radians
+    public static final double kdriveTrainFreeSpeed = (kmotorFreeSpeed * kWheelCircumferenceMeters)/kDrivingMotorReduction; //calculated motor free speed
 
     public static final double kDrivingP = 0.04;
     public static final double kDrivingI = 0;
     public static final double kDrivingD = 0;
-    public static final double kDrivingFF = 0.22;
+    public static final double kDrivingFF = 1/kdriveTrainFreeSpeed;
     public static final double kDrivingMinOutput = -1;
     public static final double kDrivingMaxOutput = 1;
 
