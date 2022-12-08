@@ -39,7 +39,7 @@ public final class Constants {
 
     /* Driving Parameters */
     public static final double kMaxSpeedMetersPerSecond = 4.4;
-    public static final double kMaxAngularSpeed = 2 * Math.PI; // radians per second    
+    public static final double kMaxAngularSpeed = 2 * Math.PI; // radians per second
 
     // Angular offsets of the modules relative to the chassis in radians
     public static final double kFrontLeftChassisAngularOffset = -Math.PI / 2;
