@@ -9,6 +9,7 @@ import com.revrobotics.CANSparkMax.IdleMode;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
+import edu.wpi.first.math.util.Units;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -24,9 +25,9 @@ import edu.wpi.first.math.trajectory.TrapezoidProfile;
  */
 public final class Constants {
   public static final class DriveConstants {
-    public static final double kTrackWidth = 0.7;
+    public static final double kTrackWidth = Units.inchesToMeters(26.5);;
     // Distance between centers of right and left wheels on robot
-    public static final double kWheelBase = 0.7;
+    public static final double kWheelBase = Units.inchesToMeters(26.5);;
     // Distance between front and back wheels on robot
     public static final SwerveDriveKinematics kDriveKinematics = new SwerveDriveKinematics(
         new Translation2d(kWheelBase / 2, kTrackWidth / 2),
@@ -37,7 +38,7 @@ public final class Constants {
     public static final boolean kGyroReversed = false;
 
     /* Driving Parameters */
-    public static final double kMaxSpeedMetersPerSecond = 5;
+    public static final double kMaxSpeedMetersPerSecond = 4.4;
     public static final double kMaxAngularSpeed = 2 * Math.PI; // radians per second    
 
     // Angular offsets of the modules relative to the chassis in radians
@@ -75,10 +76,10 @@ public final class Constants {
     public static final double kTurningEncoderPositionPIDMinInput = 0; // radians
     public static final double kTurningEncoderPositionPIDMaxInput = kTurningEncoderPositionFactor; // radians
 
-    public static final double kDrivingP = 0.01;
+    public static final double kDrivingP = 0.04;
     public static final double kDrivingI = 0;
     public static final double kDrivingD = 0;
-    public static final double kDrivingFF = 0.1;
+    public static final double kDrivingFF = 0.22;
     public static final double kDrivingMinOutput = -1;
     public static final double kDrivingMaxOutput = 1;
 
