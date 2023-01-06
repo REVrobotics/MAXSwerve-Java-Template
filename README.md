@@ -6,8 +6,8 @@ Note that this is meant to be used with a drivetrain composed of four MAXSwerve 
 
 ## Prerequisites
 
-* SPARK MAX Firmware v1.6.0 - Adds features that are required for swerve
-* REVLib v2023.1.0 - Includes APIs for the new firmware features
+* SPARK MAX Firmware v1.6.1 - Adds features that are required for swerve
+* REVLib v2023.1.1 - Includes APIs for the new firmware features
 
 ## Configuration
 
