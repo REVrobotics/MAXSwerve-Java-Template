@@ -62,14 +62,18 @@ public final class Constants {
   }
 
   public static final class ModuleConstants {
+    // The MAXSwerve module can be configured with one of three pinion gears: 12T, 13T, or 14T.
+    // This changes the drive speed of the module (a pinion gear with more teeth will result in a
+    // robot that drives faster).
+    public static final int kMotorPinionTeeth = 14;
+
     // Invert the turning encoder, since the output shaft rotates the opposite direction compared to
     // the steering motor in the MAXSwerve Module.
     public static final boolean kTurningEncoderInverted = true;
 
     // Calculations required for driving motor conversion factors and feed forward
-    public static final double kPinionTeeth = 14; // Adjust this to match your configuration!
     public static final double kDrivingMotorFreeSpeedRps = 5676 / 60;
-    public static final double kDrivingMotorReduction = 990 / (kPinionTeeth * 15);
+    public static final double kDrivingMotorReduction = 990 / (kMotorPinionTeeth * 15);
     public static final double kWheelDiameterMeters = 0.0762;
     public static final double kWheelCircumferenceMeters = kWheelDiameterMeters * Math.PI;
     public static final double kDriveTrainFreeSpeedRps = (kDrivingMotorFreeSpeedRps * kWheelCircumferenceMeters)
