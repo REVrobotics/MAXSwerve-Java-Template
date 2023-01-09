@@ -68,12 +68,12 @@ public final class Constants {
 
     // Calculations required for driving motor conversion factors and feed forward
     public static final double kPinionTeeth = 14; // Adjust this to match your configuration!
-    public static final double kMotorFreeSpeed = 5676 / 60;
+    public static final double kDrivingMotorFreeSpeedRps = 5676 / 60;
     public static final double kDrivingMotorReduction = 990 / (kPinionTeeth * 15);
     public static final double kWheelDiameterMeters = 0.0762;
     public static final double kWheelCircumferenceMeters = kWheelDiameterMeters * Math.PI;
-    public static final double kDriveTrainFreeSpeed = (kMotorFreeSpeed * kWheelCircumferenceMeters)
-        / kDrivingMotorReduction; // calculated motor free speed
+    public static final double kDriveTrainFreeSpeedRps = (kDrivingMotorFreeSpeedRps * kWheelCircumferenceMeters)
+        / kDrivingMotorReduction; // calculated from the motor free speed
 
     public static final double kDrivingEncoderPositionFactor = (kWheelDiameterMeters * Math.PI)
         / kDrivingMotorReduction; // meters
@@ -89,7 +89,7 @@ public final class Constants {
     public static final double kDrivingP = 0.04;
     public static final double kDrivingI = 0;
     public static final double kDrivingD = 0;
-    public static final double kDrivingFF = 1 / kDriveTrainFreeSpeed;
+    public static final double kDrivingFF = 1 / kDriveTrainFreeSpeedRps;
     public static final double kDrivingMinOutput = -1;
     public static final double kDrivingMaxOutput = 1;
 
