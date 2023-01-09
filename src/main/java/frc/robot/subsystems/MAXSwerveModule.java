@@ -65,7 +65,7 @@ public class MAXSwerveModule {
     m_turningEncoder.setPositionConversionFactor(ModuleConstants.kTurningEncoderPositionFactor);
     m_turningEncoder.setVelocityConversionFactor(ModuleConstants.kTurningEncoderVelocityFactor);
 
-    // Invert the turning encoder, since the output shaft rotates the opposite direction compared to
+    // Invert the turning encoder, since the output shaft rotates in the opposite direction of
     // the steering motor in the MAXSwerve Module.
     m_turningEncoder.setInverted(ModuleConstants.kTurningEncoderInverted);
 

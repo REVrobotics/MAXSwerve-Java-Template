@@ -67,7 +67,7 @@ public final class Constants {
     // robot that drives faster).
     public static final int kMotorPinionTeeth = 14;
 
-    // Invert the turning encoder, since the output shaft rotates the opposite direction compared to
+    // Invert the turning encoder, since the output shaft rotates in the opposite direction of
     // the steering motor in the MAXSwerve Module.
     public static final boolean kTurningEncoderInverted = true;
 
