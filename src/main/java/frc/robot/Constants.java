@@ -62,6 +62,8 @@ public final class Constants {
   }
 
   public static final class ModuleConstants {
+    // Invert the turning encoder, since the output shaft rotates the opposite direction compared to
+    // the steering motor in the MAXSwerve Module.
     public static final boolean kTurningEncoderInverted = true;
 
     // Calculations required for driving motor conversion factors and feed forward

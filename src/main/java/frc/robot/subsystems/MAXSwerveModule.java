@@ -65,8 +65,8 @@ public class MAXSwerveModule {
     m_turningEncoder.setPositionConversionFactor(ModuleConstants.kTurningEncoderPositionFactor);
     m_turningEncoder.setVelocityConversionFactor(ModuleConstants.kTurningEncoderVelocityFactor);
 
-    // Invert the turning encoder since the output shaft is inverse of the motor in
-    // the MAXSwerve Module.
+    // Invert the turning encoder, since the output shaft rotates the opposite direction compared to
+    // the steering motor in the MAXSwerve Module.
     m_turningEncoder.setInverted(ModuleConstants.kTurningEncoderInverted);
 
     // Enable PID wrap around for the turning motor. This will allow the PID
