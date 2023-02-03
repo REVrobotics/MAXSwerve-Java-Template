@@ -4,7 +4,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.geometry.Pose2d;
@@ -51,10 +50,10 @@ public class RobotContainer {
         // Turning is controlled by the X axis of the right stick.
         new RunCommand(
             () -> m_robotDrive.drive(
-                MathUtil.applyDeadband(-m_driverController.getLeftY(), 0.06),
-                MathUtil.applyDeadband(-m_driverController.getLeftX(), 0.06),
-                MathUtil.applyDeadband(-m_driverController.getRightX(), 0.06),
-                true),
+                Math.max(0.0, (Math.abs(m_driverController.getLeftY())-OIConstants.kDriveDeadband)/(1.0-OIConstants.kDriveDeadband)) * Math.signum(-m_driverController.getLeftY()),
+                Math.max(0.0, (Math.abs(m_driverController.getLeftX())-OIConstants.kDriveDeadband)/(1.0-OIConstants.kDriveDeadband)) * Math.signum(-m_driverController.getLeftX()),
+                Math.max(0.0, (Math.abs(m_driverController.getRightX())-OIConstants.kDriveDeadband)/(1.0-OIConstants.kDriveDeadband)) * Math.signum(-m_driverController.getRightX()),
+                true, true),
             m_robotDrive));
   }
 
@@ -117,6 +116,6 @@ public class RobotContainer {
     m_robotDrive.resetOdometry(exampleTrajectory.getInitialPose());
 
     // Run path following command, then stop at the end.
-    return swerveControllerCommand.andThen(() -> m_robotDrive.drive(0, 0, 0, false));
+    return swerveControllerCommand.andThen(() -> m_robotDrive.drive(0, 0, 0, false, false));
   }
 }
