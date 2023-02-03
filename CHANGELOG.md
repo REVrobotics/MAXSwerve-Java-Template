@@ -1,6 +1,6 @@
 # MAXSwerve Java Template Changelog
 
-## [Unreleased]
+## [1.1] - 2023-02-03
 
 ### Added
 

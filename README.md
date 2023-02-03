@@ -1,4 +1,8 @@
-# MAXSwerve Java Template
+# MAXSwerve Java Template v1.1
+
+See [CHANGELOG.md](CHANGELOG.md) for info about previous versions.
+
+## Description
 
 A template project for an FRC swerve drivetrain that uses REV MAXSwerve Modules.
 
