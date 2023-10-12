@@ -4,12 +4,14 @@
 
 package frc.robot;
 
+import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANSparkMax.IdleMode;
 
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj.SerialPort;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -24,6 +26,9 @@ import edu.wpi.first.math.util.Units;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+  public static final class Sensors{
+    public static final AHRS gyro = new AHRS(SerialPort.Port.kUSB);
+  }
   public static final class DriveConstants {
     // Driving Parameters - Note that these are not the maximum capable speeds of
     // the robot, rather the allowed maximum speeds
