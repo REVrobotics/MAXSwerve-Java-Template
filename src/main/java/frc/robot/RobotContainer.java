@@ -53,8 +53,10 @@ public class RobotContainer {
 
                 // Configure default commands
                 m_robotDrive.setDefaultCommand(new DriveCommand(m_robotDrive, m_filteredDriverController::getXLeft,
-                                m_filteredDriverController::getYLeft, m_filteredDriverController::getXRight, () -> true,
-                                () -> true, m_filteredDriverController::getLeftTriggerActive));
+                                m_filteredDriverController::getYLeft, m_filteredDriverController::getXRight,
+                                m_filteredButtons::getTopSwitch,
+                                Constants.DriveConstants.kRateLimitsEnabled,
+                                m_filteredDriverController::getLeftTriggerActive));
         }
 
         /**
@@ -68,7 +70,7 @@ public class RobotContainer {
          */
         private void configureButtonBindings() {
                 new Trigger(m_filteredButtons::getOneA).or(
-                         m_filteredDriverController::getXButton).onTrue(new WheelsX(m_robotDrive));
+                                m_filteredDriverController::getXButton).onTrue(new WheelsX(m_robotDrive));
                 new Trigger(m_filteredButtons::getOneC).onTrue(new GyroReset());
         }
 

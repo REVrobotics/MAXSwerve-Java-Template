@@ -6,6 +6,7 @@ package frc.robot;
 
 import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANSparkMax.IdleMode;
+import java.util.function.BooleanSupplier;
 
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
@@ -30,6 +31,9 @@ public final class Constants {
     public static final AHRS gyro = new AHRS(SerialPort.Port.kUSB);
   }
   public static final class DriveConstants {
+    //Rate limits on or off
+    public static final BooleanSupplier kRateLimitsEnabled = () -> true;
+
     // Driving Parameters - Note that these are not the maximum capable speeds of
     // the robot, rather the allowed maximum speeds
     public static final double kMaxSpeedMetersPerSecond = 4.8;

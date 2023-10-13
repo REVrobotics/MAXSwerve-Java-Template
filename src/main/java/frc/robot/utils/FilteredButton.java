@@ -116,10 +116,11 @@ public class FilteredButton {
     }
 
     /**
-     * returns if the top switch is on or off
+     * returns if the top switch is on or off  
      * 
      * 
-     * @return boolean
+     * 
+     * @return boolean 
      */
     public boolean getTopSwitch() {
         return controller.getRawButton(10);
