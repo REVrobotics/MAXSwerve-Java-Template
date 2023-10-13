@@ -41,7 +41,7 @@ public class RobotContainer {
         // The driver's controller
         XboxController m_driverController = new XboxController(OIConstants.kDriverControllerPort);
         FilteredController m_filteredDriverController = new FilteredController(m_driverController);
-        
+
         Joystick m_buttons = new Joystick(2);
         FilteredButton m_filteredButtons = new FilteredButton(m_buttons);
 
@@ -68,7 +68,7 @@ public class RobotContainer {
          * {@link JoystickButton}.
          */
         private void configureButtonBindings() {
-                new Trigger(m_filteredButtons::getOneA).onTrue(new WheelsX(m_robotDrive));
+                new Trigger(m_filteredButtons::getOneA).or(m_filteredDriverController::getXButton).onTrue(new WheelsX(m_robotDrive));
         }
 
         /**
