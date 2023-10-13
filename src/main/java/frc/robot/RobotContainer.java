@@ -17,6 +17,7 @@ import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.GyroReset;
 import frc.robot.commands.WheelsX;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.utils.FilteredButton;
@@ -67,7 +68,8 @@ public class RobotContainer {
          */
         private void configureButtonBindings() {
                 new Trigger(m_filteredButtons::getOneA).or(
-                                m_filteredDriverController::getXButton).onTrue(new WheelsX(m_robotDrive));
+                         m_filteredDriverController::getXButton).onTrue(new WheelsX(m_robotDrive));
+                new Trigger(m_filteredButtons::getOneC).onTrue(new GyroReset());
         }
 
         /**
