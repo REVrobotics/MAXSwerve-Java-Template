@@ -42,8 +42,7 @@ public class RobotContainer {
         XboxController m_driverController = new XboxController(OIConstants.kDriverControllerPort);
         FilteredController m_filteredDriverController = new FilteredController(m_driverController);
 
-        Joystick m_buttons = new Joystick(2);
-        FilteredButton m_filteredButtons = new FilteredButton(m_buttons);
+        FilteredButton m_filteredButtons = new FilteredButton(OIConstants.kButtonPort);
 
         /**
          * The container for the robot. Contains subsystems, OI devices, and commands.

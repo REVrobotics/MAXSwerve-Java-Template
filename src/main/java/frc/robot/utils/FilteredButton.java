@@ -13,8 +13,13 @@ import edu.wpi.first.wpilibj.Joystick;
 public class FilteredButton {
     private Joystick controller;
 
-    public FilteredButton(Joystick controller) {
-        this.controller = controller;
+    /**
+     * Filter for the custom buttons and switches
+     * 
+     * @param port the port the controller is connected to on the driver station
+     */
+    public FilteredButton(int port) {
+        this.controller = new Joystick(port);
     }
 
     /**
@@ -108,5 +113,25 @@ public class FilteredButton {
      */
     public boolean getThreeC() {
         return controller.getRawButton(9);
+    }
+
+    /**
+     * returns if the top switch is on or off
+     * 
+     * 
+     * @return boolean
+     */
+    public boolean getTopSwitch(){
+        return controller.getRawButton(10);
+    }
+
+     /**
+     * returns if the bottom switch is on or off
+     * 
+     * 
+     * @return boolean
+     */
+    public boolean getBottomSwitch(){
+        return controller.getRawButton(11);
     }
 }
