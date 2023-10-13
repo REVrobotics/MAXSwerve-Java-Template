@@ -6,10 +6,10 @@ package frc.robot.utils;
 
 import edu.wpi.first.wpilibj.Joystick;
 
-/** 
+/**
  * This is a filter class for the custom buttons on the driver station
  * 
-*/
+ */
 public class FilteredButton {
     private Joystick controller;
 
@@ -72,7 +72,7 @@ public class FilteredButton {
     public boolean getTwoB() {
         return controller.getRawButton(5);
     }
-    
+
     /**
      * Returns if the middle right button has been pressed
      * 
@@ -121,17 +121,17 @@ public class FilteredButton {
      * 
      * @return boolean
      */
-    public boolean getTopSwitch(){
+    public boolean getTopSwitch() {
         return controller.getRawButton(10);
     }
 
-     /**
+    /**
      * returns if the bottom switch is on or off
      * 
      * 
      * @return boolean
      */
-    public boolean getBottomSwitch(){
+    public boolean getBottomSwitch() {
         return controller.getRawButton(11);
     }
 }
