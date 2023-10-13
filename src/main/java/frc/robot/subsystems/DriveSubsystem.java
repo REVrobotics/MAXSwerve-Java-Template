@@ -4,7 +4,6 @@
 
 package frc.robot.subsystems;
 
-
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -16,7 +15,7 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.util.WPIUtilJNI;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.Sensors;
-import frc.utils.SwerveUtils;
+import frc.robot.utils.SwerveUtils;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase {
@@ -169,8 +168,6 @@ public class DriveSubsystem extends SubsystemBase {
       m_currentRotation = rot;
     }
 
-    // Convert the commanded speeds into the correct units for the drivetrain
-
     // Slow mode
     if (slow) {
       xSpeedDelivered = xSpeedCommanded * DriveConstants.kMaxSpeedMetersPerSecondSlow;
@@ -183,6 +180,7 @@ public class DriveSubsystem extends SubsystemBase {
       rotDelivered = m_currentRotation * DriveConstants.kMaxAngularSpeed;
     }
 
+    // Convert the commanded speeds into the correct units for the drivetrain
     var swerveModuleStates = DriveConstants.kDriveKinematics.toSwerveModuleStates(
         fieldRelative
             ? ChassisSpeeds.fromFieldRelativeSpeeds(xSpeedDelivered, ySpeedDelivered, rotDelivered,

@@ -1,4 +1,4 @@
-package frc.utils;
+package frc.robot.utils;
 
 /*
  * JBoss, Home of Professional Open Source
