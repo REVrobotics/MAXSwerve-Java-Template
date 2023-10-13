@@ -68,7 +68,8 @@ public class RobotContainer {
          * {@link JoystickButton}.
          */
         private void configureButtonBindings() {
-                new Trigger(m_filteredButtons::getOneA).or(m_filteredDriverController::getXButton).onTrue(new WheelsX(m_robotDrive));
+                new Trigger(m_filteredButtons::getOneA).or(
+                        m_filteredDriverController::getXButton).onTrue(new WheelsX(m_robotDrive));
         }
 
         /**

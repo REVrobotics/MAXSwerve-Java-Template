@@ -15,8 +15,21 @@ public class DriveCommand extends CommandBase{
     private final BooleanSupplier m_rateLimit;
     private final BooleanSupplier m_slow;
 
-    public DriveCommand(DriveSubsystem subsystem, DoubleSupplier xSpeed, DoubleSupplier ySpeed, DoubleSupplier rotSpeed, BooleanSupplier fieldRelative, BooleanSupplier rateLimit, BooleanSupplier slow){
-        m_driveSubsystem = subsystem;
+
+    /**
+     * Command for driving the robot
+     * 
+     * 
+     * @param driveSubsystem subsystm for driving the robot
+     * @param xSpeed speed to move on the x-axis
+     * @param ySpeed speed to move on the y-axis
+     * @param rotSpeed rotational speed, positive is counter-clockwise
+     * @param fieldRelative whether commands are relative to the field or the robot, true is relative to the field
+     * @param rateLimit whether to enable rate limiting
+     * @param slow when true, slows speed to 1/4
+     */
+    public DriveCommand(DriveSubsystem driveSubsystem, DoubleSupplier xSpeed, DoubleSupplier ySpeed, DoubleSupplier rotSpeed, BooleanSupplier fieldRelative, BooleanSupplier rateLimit, BooleanSupplier slow){
+        m_driveSubsystem = driveSubsystem;
         m_xSpeed = xSpeed;
         m_ySpeed = ySpeed;
         m_rotSpeed = rotSpeed;
