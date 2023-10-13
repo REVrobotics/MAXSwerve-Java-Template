@@ -5,7 +5,6 @@
 package frc.robot.utils;
 
 import edu.wpi.first.math.MathUtil;
-import java.util.function.BooleanSupplier;
 
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.OIConstants;
@@ -214,8 +213,8 @@ public class FilteredController {
      * 
      * @return boolean
      */
-    public BooleanSupplier getPOVPressed() {
-        return () -> controller.getPOV() != -1;
+    public boolean getPOVPressed() {
+        return controller.getPOV() != -1;
     }
 
     /**
