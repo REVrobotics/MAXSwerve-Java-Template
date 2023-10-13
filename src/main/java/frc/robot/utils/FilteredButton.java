@@ -119,7 +119,6 @@ public class FilteredButton {
      * returns if the top switch is on or off  
      * 
      * 
-     * 
      * @return boolean 
      */
     public boolean getTopSwitch() {
