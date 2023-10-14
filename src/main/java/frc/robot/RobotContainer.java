@@ -41,7 +41,7 @@ public class RobotContainer {
         // The driver's controller
 
         FilteredController m_filteredDriverController = new FilteredController(
-                        new XboxController(OIConstants.kDriverControllerPort));
+                        OIConstants.kDriverControllerPort);
         FilteredButton m_filteredButtons = new FilteredButton(OIConstants.kButtonPort);
 
         /**

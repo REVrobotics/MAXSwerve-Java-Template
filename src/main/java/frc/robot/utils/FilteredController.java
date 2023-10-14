@@ -16,8 +16,8 @@ public class FilteredController {
     private XboxController controller;
 
 //constructor
-    public FilteredController(XboxController controller) {
-        this.controller = controller;
+    public FilteredController(int port) {
+        this.controller = new XboxController(port);
     }
 
     /**
