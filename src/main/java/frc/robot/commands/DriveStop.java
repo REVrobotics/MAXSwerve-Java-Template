@@ -9,7 +9,6 @@ public class DriveStop extends CommandBase {
     /**
      * Sets the drive speed to 0
      * 
-     * 
      * @param driveSubsystem subsystem for driving the robot
      */
     public DriveStop(DriveSubsystem driveSubsystem) {

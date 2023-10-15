@@ -6,7 +6,7 @@ import frc.robot.Constants;
 public class GyroReset extends CommandBase {
 
     /**
-     * Locks the wheels into a x position
+     * Resets the gyro angle to zero
      * 
      * @param DriveSubsystem subsystem for driving
      */

@@ -19,7 +19,7 @@ public class DriveCommand extends CommandBase {
      * Command for driving the robot
      * 
      * 
-     * @param driveSubsystem subsystm for driving the robot
+     * @param driveSubsystem subsystem for driving the robot
      * @param xSpeed         speed to move on the x-axis
      * @param ySpeed         speed to move on the y-axis
      * @param rotSpeed       rotational speed, positive is counter-clockwise

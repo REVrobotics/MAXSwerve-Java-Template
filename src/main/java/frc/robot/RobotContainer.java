@@ -24,11 +24,10 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  * (including subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-        // The robot's subsystems
+        //Initialize subsystems
         public final static DriveSubsystem m_robotDrive = new DriveSubsystem();
 
-        // The driver's controller
-
+        //initialize the controllers
         FilteredController m_driverController = new FilteredController(
                         OIConstants.kDriverControllerPort);
         FilteredButton m_buttons = new FilteredButton(OIConstants.kButtonPort);
@@ -58,9 +57,12 @@ public class RobotContainer {
          * {@link JoystickButton}.
          */
         private void configureButtonBindings() {
+                //top left button and x button on controller sets wheels to x
                 new Trigger(m_buttons::getOneA).or(
                                 m_driverController::getXButton).onTrue(new WheelsX(m_robotDrive));
+                //top right button resets gyro
                 new Trigger(m_buttons::getOneC).onTrue(new GyroReset());
+                //bottom middle button stops drive
                 new Trigger(m_buttons::getThreeB).whileTrue(new DriveStop(m_robotDrive));
         }
 
