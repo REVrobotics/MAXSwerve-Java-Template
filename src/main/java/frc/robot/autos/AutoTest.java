@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
 import frc.robot.Constants;
 import frc.robot.Constants.DriveConstants;
+import frc.robot.commands.DriveStop;
 import frc.robot.subsystems.DriveSubsystem;
 import java.util.List;
 
@@ -42,6 +43,6 @@ public class AutoTest extends SequentialCommandGroup {
         m_robotDrive.resetOdometry(exampleTrajectory.getInitialPose());
 
         addCommands(
-                swerveControllerCommand.andThen(() -> m_robotDrive.drive(0, 0, 0, false, false, false)));
+                swerveControllerCommand.andThen(new DriveStop(m_robotDrive)));
     }
 }
