@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.DriveStop;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.WheelsX;
 import frc.robot.subsystems.DriveSubsystem;
@@ -60,6 +61,7 @@ public class RobotContainer {
                 new Trigger(m_buttons::getOneA).or(
                                 m_driverController::getXButton).onTrue(new WheelsX(m_robotDrive));
                 new Trigger(m_buttons::getOneC).onTrue(new GyroReset());
+                new Trigger(m_buttons::getThreeB).whileTrue(new DriveStop(m_robotDrive));
         }
 
         /**
