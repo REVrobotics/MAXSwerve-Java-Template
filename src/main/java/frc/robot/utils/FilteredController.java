@@ -47,7 +47,7 @@ public class FilteredController {
      * @return double
      */
     public double getYLeft(double deadzone) {
-        return MathUtil.applyDeadband(controller.getLeftY(), deadzone);
+        return MathUtil.applyDeadband(controller.getLeftY(), deadzone) * -1;
     }
 
     /**
@@ -57,7 +57,7 @@ public class FilteredController {
      * @return double
      */
     public double getYRight(double deadzone) {
-        return MathUtil.applyDeadband(controller.getRightY(), deadzone);
+        return MathUtil.applyDeadband(controller.getRightY(), deadzone) * -1;
     }
 
     /**
@@ -84,7 +84,7 @@ public class FilteredController {
      * @return double
      */
     public double getYLeft() {
-        return MathUtil.applyDeadband(controller.getLeftY(), OIConstants.kDriveDeadband);
+        return MathUtil.applyDeadband(controller.getLeftY(), OIConstants.kDriveDeadband) * -1;
     }
 
     /**
@@ -93,7 +93,7 @@ public class FilteredController {
      * @return double
      */
     public double getYRight() {
-        return MathUtil.applyDeadband(controller.getRightY(), OIConstants.kDriveDeadband);
+        return MathUtil.applyDeadband(controller.getRightY(), OIConstants.kDriveDeadband) * -1;
     }
 
     /**

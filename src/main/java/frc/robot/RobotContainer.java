@@ -42,7 +42,7 @@ public class RobotContainer {
                 // Configure default commands
                 m_robotDrive.setDefaultCommand(new DriveCommand(m_robotDrive, m_driverController::getXLeft,
                                 m_driverController::getYLeft, m_driverController::getXRight,
-                                m_buttons::getTopSwitch,
+                                () -> false,
                                 Constants.DriveConstants.kRateLimitsEnabled,
                                 m_driverController::getLeftTriggerActive));
         }
@@ -61,7 +61,7 @@ public class RobotContainer {
                 new Trigger(m_buttons::getOneA).or(
                                 m_driverController::getXButton).onTrue(new WheelsX(m_robotDrive));
                 //top right button resets gyro
-                new Trigger(m_buttons::getOneC).onTrue(new GyroReset());
+                new Trigger(m_buttons::getOneC).or(m_driverController::getYButton).onTrue(new GyroReset());
                 //bottom middle button stops drive
                 new Trigger(m_buttons::getThreeB).whileTrue(new DriveStop(m_robotDrive));
         }

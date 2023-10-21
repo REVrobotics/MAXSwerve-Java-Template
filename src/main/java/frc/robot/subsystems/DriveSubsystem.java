@@ -120,6 +120,7 @@ public class DriveSubsystem extends SubsystemBase {
     double xSpeedDelivered;
     double ySpeedDelivered;
     double rotDelivered;
+    rot *= -1;
 
     if (rateLimit) {
       // Convert XY to polar for rate limiting
@@ -172,17 +173,17 @@ public class DriveSubsystem extends SubsystemBase {
       xSpeedDelivered = xSpeedCommanded * Constants.DriveConstants.kSlowModifier;
       ySpeedDelivered = ySpeedCommanded * Constants.DriveConstants.kSlowModifier;
       rotDelivered = m_currentRotation * Constants.DriveConstants.kSlowModifier;
+    } else{
+      xSpeedDelivered = xSpeedCommanded * Constants.DriveConstants.kMaxSpeedMetersPerSecond;
+      ySpeedDelivered = ySpeedCommanded * Constants.DriveConstants.kMaxSpeedMetersPerSecond;
+      rotDelivered = m_currentRotation * Constants.DriveConstants.kMaxAngularSpeed;
     }
-
-    xSpeedDelivered = xSpeedCommanded * Constants.DriveConstants.kMaxSpeedMetersPerSecond;
-    ySpeedDelivered = ySpeedCommanded * Constants.DriveConstants.kMaxSpeedMetersPerSecond;
-    rotDelivered = m_currentRotation * Constants.DriveConstants.kMaxAngularSpeed;
 
     // Convert the commanded speeds into the correct units for the drivetrain
     var swerveModuleStates = Constants.DriveConstants.kDriveKinematics.toSwerveModuleStates(
         fieldRelative
             ? ChassisSpeeds.fromFieldRelativeSpeeds(xSpeedDelivered, ySpeedDelivered, rotDelivered,
-                Rotation2d.fromDegrees(Constants.Sensors.gyro.getAngle()))
+                Rotation2d.fromDegrees(Constants.Sensors.gyro.getAngle() * (Constants.DriveConstants.kGyroReversed ? -1 : 1)))
             : new ChassisSpeeds(xSpeedDelivered, ySpeedDelivered, rotDelivered));
     SwerveDriveKinematics.desaturateWheelSpeeds(
         swerveModuleStates, Constants.DriveConstants.kMaxSpeedMetersPerSecond);
@@ -229,6 +230,9 @@ public class DriveSubsystem extends SubsystemBase {
     Constants.Sensors.gyro.reset();
   }
 
+  public void log() {
+
+  }
   /**
    * Returns the heading of the robot.
    *
