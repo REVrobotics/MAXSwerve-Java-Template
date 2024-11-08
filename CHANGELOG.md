@@ -1,5 +1,11 @@
 # MAXSwerve Java Template Changelog
 
+## [2025.0] - 2024-11-07
+
+- Updates project for 2025 FRC season
+- Uses new SPARK configuration mechanism introduced in REVLib 2025
+- Removes slew rate limiter since it is no longer needed with MAXSwerve 2.0 wheels
+
 ## [2024.0] - 2024-01-08
 
 - Updates project for 2024 FRC season
