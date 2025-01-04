@@ -1,4 +1,4 @@
-# MAXSwerve Java Template v2025.0
+# MAXSwerve Java Template v2025.1
 
 See [the online changelog](https://github.com/REVrobotics/MAXSwerve-Java-Template/blob/main/CHANGELOG.md) for information about updates to the template that may have been released since you created your project.
 
